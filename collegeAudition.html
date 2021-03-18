@@ -1,0 +1,1325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>志愿推荐_志愿填报模拟系统_一键选择我的大学志愿 - 好好录</title>
+	<meta name="keywords" content="高考志愿填报系统,平行志愿填报技巧,高考gps高考志愿填报系统,模拟志愿填报系统,高考志愿填报网,志愿填报指南" />
+	<meta name="description" content="好好录志愿推荐功能，是集合志愿分数评估,高考志愿填报技巧,高考分数线,高考填报模拟系统,平行志愿填报技巧于一体的一键志愿填报功能，志愿推荐功能可以帮助目标不明确的考生和家长最快的锁定大学和专业目标。">
+    <link rel="stylesheet" href="./css/index.css"/>
+    <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+<!-- 	<script type="text/javascript" src="http://www.haohaoluqu.com/Public/js3/volun/index.js"></script> -->
+	<style>
+		.volun_content_top div{
+			top: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="volun_content_top">
+		<img src="img/volun_bg2.png" alt="">
+		<div id="explain_word">
+			<p>使用说明:</p>
+			<p>1、推荐的院校我们均已进行了严格的等级划分，并将风险指数过高及过低的院校自动屏蔽，建议不要跳出该范围选择志愿。</p>
+			<p>2、名词解释：</p>
+			<p>A段代表可冲击的院校，是系统推荐给您的有希望冲一冲的院校。</p>
+			<p>B段、C段代表谨慎填报的院校 ，属于和你分数水平差不多的院校。</p>
+			<p>D段代表保险的院校 ，属于你填报录取概率非常高的院校。</p>
+			<p>E段代表托底的院校，是为了防止出现院校大小年等不确定因素，给你推荐的用于防止意外的院校。</p>
+			<p>正常填报时只需在各字母段中各选一所院校。</p>
+		</div>
+	</div>
+	<div class="under_batch">
+		<div class="box" id="box">
+			<div id="tabl" class="tabL">
+	           <a href="javascript:void(0)" class="activeNav">本科一批</a>
+                   <!--这个地方我隐藏了本科二批，规则还没有写，2020-06-25-->
+	           <!-- <a href="javascript:void(0)">本科二批</a> -->
+		   </div>	
+		   <div class="shaixuan">
+			   <div class="part">
+				   <span class="title">院校省份</span>
+				   <div class="province">
+					<i>不限省份</i>
+					<span class="down1"></span>
+					<span class="up1"></span>
+				   </div>
+				<div class="list">
+					<ul class="provinceList">
+						<li><span>不限省份</span><input type="checkbox" value="不限省份" style="visibility: hidden;"></li>
+						<li><span>北京</span><input type="checkbox" value="北京"></li>
+						<li><span>天津</span><input type="checkbox" value="天津"></li>
+						<li><span>河北</span><input type="checkbox" value="河北"></li>
+						<li><span>山西</span><input type="checkbox" value="山西"></li>
+						<li><span>内蒙古</span><input type="checkbox" value="内蒙古"></li>
+						<li><span>辽宁</span><input type="checkbox" value="辽宁"></li>
+						<li><span>吉林</span><input type="checkbox" value="吉林"></li>
+					</ul>
+					<div class="reset_search">
+						<span class="chongzhi">重置</span>
+						<span class="shai">点击筛选</span>
+					</div>
+				</div>
+			   </div>
+				<div class="part">
+					<span class="title">专业类别</span>
+					<div class="zylb">
+						<div class="zhuanye">
+							<i>不限专业</i>
+							<span class="down2"></span>
+							<span class="up2"></span>
+						</div>
+						<div id="slideBox">
+							<div class="reset">
+								<span>重置</span>
+							</div>
+							<div class="sure">
+								<span>点击确认筛选</span>
+							</div>
+							<div class="innerBox">
+								<div class="slideLiT">
+									<h5 class="slideLihT">不限专业</h5>
+									
+								</div>
+								<div class="slideLi">
+									<h5 class="slideLih">历史学</h5>
+									<ul class="slideLiUl">
+										<li><span>历史学类1</span><input type="checkbox" value="历史学类1"></li>
+										<li><span>历史学类2</span><input type="checkbox" value="历史学类2"></li>
+										<li><span>历史学类3</span><input type="checkbox" value="历史学类3"></li>
+										<li><span>历史学类4</span><input type="checkbox" value="历史学类4"></li>
+										<li><span>历史学类5</span><input type="checkbox" value="历史学类5"></li>
+										<li><span>历史学类6</span><input type="checkbox" value="历史学类6"></li>
+										<li><span>历史学类7</span><input type="checkbox" value="历史学类7"></li>
+									</ul>
+								</div>
+								<div class="slideLi">
+									<h5 class="slideLih">数学</h5>
+									<ul class="slideLiUl">
+										<li><span>数学类1</span><input type="checkbox" value="数学类1"></li>
+										<li><span>数学类2</span><input type="checkbox" value="数学类2"></li>
+										<li><span>数学类3</span><input type="checkbox" value="数学类3"></li>
+										<li><span>数学类4</span><input type="checkbox" value="数学类4"></li>
+										<li><span>数学类5</span><input type="checkbox" value="数学类5"></li>
+										<li><span>数学类6</span><input type="checkbox" value="数学类6"></li>
+										<li><span>数学类7</span><input type="checkbox" value="数学类7"></li>
+									</ul>
+								</div>
+								<div class="slideLi">
+									<h5 class="slideLih">数学1</h5>
+									<ul class="slideLiUl">
+										<li><span>数学类1</span><input type="checkbox" value="数学类1"></li>
+										<li><span>数学类1</span><input type="checkbox" value="数学类2"></li>
+										<li><span>数学类1</span><input type="checkbox" value="数学类3"></li>
+										<li><span>数学类1</span><input type="checkbox" value="数学类4"></li>
+										<li><span>数学类1</span><input type="checkbox" value="数学类5"></li>
+										<li><span>数学类1</span><input type="checkbox" value="数学类6"></li>
+										<li><span>数学类1</span><input type="checkbox" value="数学类7"></li>
+									</ul>
+								</div>
+								<div class="slideLi">
+									<h5 class="slideLih">数学2</h5>
+									<ul class="slideLiUl">
+										<li><span>数学类2</span><input type="checkbox" value="数学类1"></li>
+										<li><span>数学类2</span><input type="checkbox" value="数学类2"></li>
+										<li><span>数学类2</span><input type="checkbox" value="数学类3"></li>
+										<li><span>数学类2</span><input type="checkbox" value="数学类4"></li>
+										<li><span>数学类2</span><input type="checkbox" value="数学类5"></li>
+										<li><span>数学类2</span><input type="checkbox" value="数学类6"></li>
+										<li><span>数学类2</span><input type="checkbox" value="数学类7"></li>
+									</ul>
+								</div>
+								<div class="slideLi">
+									<h5 class="slideLih">数学3</h5>
+									<ul class="slideLiUl">
+										<li><span>数学类3</span><input type="checkbox" value="数学类1"></li>
+										<li><span>数学类3</span<input type="checkbox" value="数学类2"></li>
+										<li><span>数学类3</span<input type="checkbox" value="数学类3"></li>
+										<li><span>数学类3</span<input type="checkbox" value="数学类4"></li>
+										<li><span>数学类3</span<input type="checkbox" value="数学类5"></li>
+										<li><span>数学类3</span<input type="checkbox" value="数学类6"></li>
+										<li><span>数学类3</span<input type="checkbox" value="数学类7"></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="part">
+					<span class="title">自定院校</span>
+					<div class="zdyx">
+						<input type="text" placeholder="请输入您的目标院校全称" id="inputVal">
+						<span id="search">搜索</span>
+					</div>
+				</div>
+		   </div>
+			<div class="div_one">
+				<p class="p_one clearfix">
+					<a href="javascript:void(0)">A/B</a>
+					<a href="javascript:void(0)">C</a>
+					<a href="javascript:void(0)">D/E/F</a>
+					<a href="javascript:void(0)">G/H</a>
+					<a href="javascript:void(0)">I/J</a>
+				</p>
+				<!-- 本科一批-->
+				<!-- 所有的段位内容都用该div class="div_content"的模版 -->
+				<!-- 模版起始位置 -->
+				<div class="div_content">
+					<ul>
+						<li>
+							<div class="colleage_list clearfix">
+								<div>
+									<img src="img/logo.jpg" alt="">
+								</div>
+								<div>
+									<p>
+										<strong>西安理工大学</strong>
+										<span>985</span>
+									</p>
+									<p>排名：<span>137</span></p>
+									<p>类型：
+										<span>理工类</span>
+									</p>
+								</div>
+								<div>
+									<p>所在地</p>
+									<p>陕西</p>
+									<p>陕西</p>
+								</div>
+								<div>
+									<p>计划人数</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>计划页码</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>位次</p>
+									<p>
+										<span>2019</span>
+										<span>27412</span>
+									</p>
+									<p>
+										<span>2018</span>
+										<span>28858</span>
+									</p>
+									<p>
+										<span>2017</span>
+										<span>29432</span>
+									</p>
+								</div>
+								<div>
+									<p>挑选专业</p>
+									<p><img src="img/down.png" alt="" class="down"></p>
+								</div>
+							</div>
+							<table width="1200"  cellspacing="0" cellpadding="0">
+									<tr>
+										<th>专业代码</th>
+										<th>专业名称</th>
+										<th>计划数</th>
+										<th>学科等级</th>
+										<th>选科要求</th>
+										<th>专业位次</th>
+										<th>录取难度</th>
+										<th></th>
+									</tr>
+									<tr>
+										<td>008</td>
+										<td>计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术</td>
+										<td>16</td>
+										<td>A</td>
+										<td>
+											<p>首选物理</p>
+											<p>再选不限</p>
+										</td>
+										<td>
+											<p>
+												<span>2019</span>
+												<span>274121</span>
+											</p>
+											<p>
+												<span>2018</span>
+												<span>288581</span>
+											</p>
+											<p>
+												<span>2017</span>
+												<span>29432</span>
+											</p>
+										</td>
+										<td>
+											<span class="chong">冲</span>
+										</td>
+										<td>
+											<span class="add add-btn">加入预选表</span>
+										</td>
+									</tr>
+									<tr>
+										<td>008</td>
+										<td>计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术</td>
+										<td>16</td>
+										<td>A</td>
+										<td>
+											<p>首选物理</p>
+											<p>再选不限</p>
+										</td>
+										<td>
+											<p>
+												<span>2019</span>
+												<span>274121</span>
+											</p>
+											<p>
+												<span>2018</span>
+												<span>288581</span>
+											</p>
+											<p>
+												<span>2017</span>
+												<span>29432</span>
+											</p>
+										</td>
+										<td>
+											<span class="chong">冲</span>
+										</td>
+										<td>
+											<span class="add add-btn">加入预选表</span>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="8">*专业备注详情请查看招生计划书具体说明（如学科要求、学费、专业方向）</td>
+									</tr>
+								</table>
+						</li>
+						<li>
+							<div class="colleage_list clearfix">
+								<div>
+									<img src="img/logo.jpg" alt="">
+								</div>
+								<div>
+									<p>
+										<strong>南京理工大学</strong>
+										<span>985</span>
+									</p>
+									<p>排名：<span>137</span></p>
+									<p>类型：
+										<span>理工类</span>
+									</p>
+								</div>
+								<div>
+									<p>所在地</p>
+									<p>陕西</p>
+									<p>陕西</p>
+								</div>
+								<div>
+									<p>计划人数</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>计划页码</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>位次</p>
+									<p>
+										<span>2019</span>
+										<span>27412</span>
+									</p>
+									<p>
+										<span>2018</span>
+										<span>28858</span>
+									</p>
+									<p>
+										<span>2017</span>
+										<span>29432</span>
+									</p>
+								</div>
+								<div>
+									<p>挑选专业</p>
+									<p><img src="img/down.png" alt="" class="down"></p>
+								</div>
+							</div>
+							<table width="1200" cellspacing="0" cellpadding="0">
+								<tr>
+									<th>专业代码</th>
+									<th>专业名称</th>
+									<th>计划数</th>
+									<th>学科等级</th>
+									<th>选科要求</th>
+									<th>专业位次</th>
+									<th>录取难度</th>
+									<th></th>
+								</tr>
+								<tr>
+									<td>008</td>
+									<td>计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术</td>
+									<td>16</td>
+									<td>A</td>
+									<td>
+										<p>首选物理</p>
+										<p>再选不限</p>
+									</td>
+									<td>
+										<p>
+											<span>2019</span>
+											<span>274121</span>
+										</p>
+										<p>
+											<span>2018</span>
+											<span>288581</span>
+										</p>
+										<p>
+											<span>2017</span>
+											<span>29432</span>
+										</p>
+									</td>
+									<td>
+										<span class="chong">冲</span>
+									</td>
+									<td>
+										<span class="add add-btn">加入预选表</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8">*专业备注详情请查看招生计划书具体说明（如学科要求、学费、专业方向）</td>
+								</tr>
+							</table>
+						</li>
+						<li>
+							<div class="colleage_list clearfix">
+								<div>
+									<img src="img/logo.jpg" alt="">
+								</div>
+								<div>
+									<p>
+										<strong>南京理工大学</strong>
+										<span>985</span>
+									</p>
+									<p>排名：<span>137</span></p>
+									<p>类型：
+										<span>理工类</span>
+									</p>
+								</div>
+								<div>
+									<p>所在地</p>
+									<p>陕西</p>
+									<p>陕西</p>
+								</div>
+								<div>
+									<p>计划人数</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>计划页码</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>位次</p>
+									<p>
+										<span>2019</span>
+										<span>27412</span>
+									</p>
+									<p>
+										<span>2018</span>
+										<span>28858</span>
+									</p>
+									<p>
+										<span>2017</span>
+										<span>29432</span>
+									</p>
+								</div>
+								<div>
+									<p>挑选专业</p>
+									<p><img src="img/down.png" alt="" class="down"></p>
+								</div>
+							</div>
+							<table width="1200" cellspacing="0" cellpadding="0">
+								<tr>
+									<th>专业代码</th>
+									<th>专业名称</th>
+									<th>计划数</th>
+									<th>学科等级</th>
+									<th>选科要求</th>
+									<th>专业位次</th>
+									<th>录取难度</th>
+									<th></th>
+								</tr>
+								<tr>
+									<td>008</td>
+									<td>计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术</td>
+									<td>16</td>
+									<td>A</td>
+									<td>
+										<p>首选物理</p>
+										<p>再选不限</p>
+									</td>
+									<td>
+										<p>
+											<span>2019</span>
+											<span>274121</span>
+										</p>
+										<p>
+											<span>2018</span>
+											<span>288581</span>
+										</p>
+										<p>
+											<span>2017</span>
+											<span>29432</span>
+										</p>
+									</td>
+									<td>
+										<span class="chong">冲</span>
+									</td>
+									<td>
+										<span class="add add-btn">加入预选表</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8">*专业备注详情请查看招生计划书具体说明（如学科要求、学费、专业方向）</td>
+								</tr>
+							</table>
+						</li>
+						<li>
+							<div class="colleage_list clearfix">
+								<div>
+									<img src="img/logo.jpg" alt="">
+								</div>
+								<div>
+									<p>
+										<strong>南京理工大学</strong>
+										<span>985</span>
+									</p>
+									<p>排名：<span>137</span></p>
+									<p>类型：
+										<span>理工类</span>
+									</p>
+								</div>
+								<div>
+									<p>所在地</p>
+									<p>陕西</p>
+									<p>陕西</p>
+								</div>
+								<div>
+									<p>计划人数</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>计划页码</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>位次</p>
+									<p>
+										<span>2019</span>
+										<span>27412</span>
+									</p>
+									<p>
+										<span>2018</span>
+										<span>28858</span>
+									</p>
+									<p>
+										<span>2017</span>
+										<span>29432</span>
+									</p>
+								</div>
+								<div>
+									<p>挑选专业</p>
+									<p><img src="img/down.png" alt="" class="down"></p>
+								</div>
+							</div>
+							<table width="1200" cellspacing="0" cellpadding="0">
+								<tr>
+									<th>专业代码</th>
+									<th>专业名称</th>
+									<th>计划数</th>
+									<th>学科等级</th>
+									<th>选科要求</th>
+									<th>专业位次</th>
+									<th>录取难度</th>
+									<th></th>
+								</tr>
+								<tr>
+									<td>008</td>
+									<td>计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术</td>
+									<td>16</td>
+									<td>A</td>
+									<td>
+										<p>首选物理</p>
+										<p>再选不限</p>
+									</td>
+									<td>
+										<p>
+											<span>2019</span>
+											<span>274121</span>
+										</p>
+										<p>
+											<span>2018</span>
+											<span>288581</span>
+										</p>
+										<p>
+											<span>2017</span>
+											<span>29432</span>
+										</p>
+									</td>
+									<td>
+										<span class="dian">垫</span>
+									</td>
+									<td>
+										<span class="add add-btn">加入预选表</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8">*专业备注详情请查看招生计划书具体说明（如学科要求、学费、专业方向）</td>
+								</tr>
+							</table>
+						</li>
+						<li>
+							<div class="colleage_list clearfix">
+								<div>
+									<img src="img/logo.jpg" alt="">
+								</div>
+								<div>
+									<p>
+										<strong>南京理工大学</strong>
+										<span>985</span>
+									</p>
+									<p>排名：<span>137</span></p>
+									<p>类型：
+										<span>理工类</span>
+									</p>
+								</div>
+								<div>
+									<p>所在地</p>
+									<p>陕西</p>
+									<p>陕西</p>
+								</div>
+								<div>
+									<p>计划人数</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>计划页码</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>位次</p>
+									<p>
+										<span>2019</span>
+										<span>27412</span>
+									</p>
+									<p>
+										<span>2018</span>
+										<span>28858</span>
+									</p>
+									<p>
+										<span>2017</span>
+										<span>29432</span>
+									</p>
+								</div>
+								<div>
+									<p>挑选专业</p>
+									<p><img src="img/down.png" alt="" class="down"></p>
+								</div>
+							</div>
+							<table width="1200" cellspacing="0" cellpadding="0">
+								<tr>
+									<th>专业代码</th>
+									<th>专业名称</th>
+									<th>计划数</th>
+									<th>学科等级</th>
+									<th>选科要求</th>
+									<th>专业位次</th>
+									<th>录取难度</th>
+									<th></th>
+								</tr>
+								<tr>
+									<td>008</td>
+									<td>计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术</td>
+									<td>16</td>
+									<td>A</td>
+									<td>
+										<p>首选物理</p>
+										<p>再选不限</p>
+									</td>
+									<td>
+										<p>
+											<span>2019</span>
+											<span>274121</span>
+										</p>
+										<p>
+											<span>2018</span>
+											<span>288581</span>
+										</p>
+										<p>
+											<span>2017</span>
+											<span>29432</span>
+										</p>
+									</td>
+									<td>
+										<span class="chong">冲</span>
+									</td>
+									<td>
+										<span class="add add-btn">加入预选表</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8">*专业备注详情请查看招生计划书具体说明（如学科要求、学费、专业方向）</td>
+								</tr>
+							</table>
+						</li>
+						<li>
+							<div class="colleage_list clearfix">
+								<div>
+									<img src="img/logo.jpg" alt="">
+								</div>
+								<div>
+									<p>
+										<strong>南京理工大学</strong>
+										<span>985</span>
+									</p>
+									<p>排名：<span>137</span></p>
+									<p>类型：
+										<span>理工类</span>
+									</p>
+								</div>
+								<div>
+									<p>所在地</p>
+									<p>陕西</p>
+									<p>陕西</p>
+								</div>
+								<div>
+									<p>计划人数</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>计划页码</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>位次</p>
+									<p>
+										<span>2019</span>
+										<span>27412</span>
+									</p>
+									<p>
+										<span>2018</span>
+										<span>28858</span>
+									</p>
+									<p>
+										<span>2017</span>
+										<span>29432</span>
+									</p>
+								</div>
+								<div>
+									<p>挑选专业</p>
+									<p><img src="img/down.png" alt="" class="down"></p>
+								</div>
+							</div>
+							<table width="1200" cellspacing="0" cellpadding="0">
+								<tr>
+									<th>专业代码</th>
+									<th>专业名称</th>
+									<th>计划数</th>
+									<th>学科等级</th>
+									<th>选科要求</th>
+									<th>专业位次</th>
+									<th>录取难度</th>
+									<th></th>
+								</tr>
+								<tr>
+									<td>008</td>
+									<td>计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术</td>
+									<td>16</td>
+									<td>A</td>
+									<td>
+										<p>首选物理</p>
+										<p>再选不限</p>
+									</td>
+									<td>
+										<p>
+											<span>2019</span>
+											<span>274121</span>
+										</p>
+										<p>
+											<span>2018</span>
+											<span>288581</span>
+										</p>
+										<p>
+											<span>2017</span>
+											<span>29432</span>
+										</p>
+									</td>
+									<td>
+										<span class="bao">保</span>
+									</td>
+									<td>
+										<span class="add add-btn">加入预选表</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8">*专业备注详情请查看招生计划书具体说明（如学科要求、学费、专业方向）</td>
+								</tr>
+							</table>
+						</li>
+						<li>
+							<div class="colleage_list clearfix">
+								<div>
+									<img src="img/logo.jpg" alt="">
+								</div>
+								<div>
+									<p>
+										<strong>南京理工大学</strong>
+										<span>985</span>
+									</p>
+									<p>排名：<span>137</span></p>
+									<p>类型：
+										<span>理工类</span>
+									</p>
+								</div>
+								<div>
+									<p>所在地</p>
+									<p>陕西</p>
+									<p>陕西</p>
+								</div>
+								<div>
+									<p>计划人数</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>计划页码</p>
+									<p>77</p>
+								</div>
+								<div>
+									<p>位次</p>
+									<p>
+										<span>2019</span>
+										<span>27412</span>
+									</p>
+									<p>
+										<span>2018</span>
+										<span>28858</span>
+									</p>
+									<p>
+										<span>2017</span>
+										<span>29432</span>
+									</p>
+								</div>
+								<div>
+									<p>挑选专业</p>
+									<p><img src="img/down.png" alt="" class="down"></p>
+								</div>
+							</div>
+							<table width="1200" cellspacing="0" cellpadding="0">
+								<tr>
+									<th>专业代码</th>
+									<th>专业名称</th>
+									<th>计划数</th>
+									<th>学科等级</th>
+									<th>选科要求</th>
+									<th>专业位次</th>
+									<th>录取难度</th>
+									<th></th>
+								</tr>
+								<tr>
+									<td>008</td>
+									<td>计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术计算机科学与技术</td>
+									<td>16</td>
+									<td>A</td>
+									<td>
+										<p>首选物理</p>
+										<p>再选不限</p>
+									</td>
+									<td>
+										<p>
+											<span>2019</span>
+											<span>274121</span>
+										</p>
+										<p>
+											<span>2018</span>
+											<span>288581</span>
+										</p>
+										<p>
+											<span>2017</span>
+											<span>29432</span>
+										</p>
+									</td>
+									<td>
+										<span class="wen">稳</span>
+									</td>
+									<td>
+										<span class="add add-btn">加入预选表</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="8">*专业备注详情请查看招生计划书具体说明（如学科要求、学费、专业方向）</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+			</div>
+			<!-- 本科二批内容 -->
+			<div class="div_one">
+				<p class="p_one clearfix">
+					<a href="javascript:void(0)">A/B</a>
+					<a href="javascript:void(0)">C</a>
+					<a href="javascript:void(0)">D</a>
+					<a href="javascript:void(0)">E</a>
+					<a href="javascript:void(0)">F</a>
+					<a href="javascript:void(0)">G</a>
+					<a href="javascript:void(0)">H</a>
+					<a href="javascript:void(0)">I</a>
+					<a href="javascript:void(0)">J</a>
+				</p>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+				<div class="div_content">
+					<ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="check_colun">
+			<div class="shop-car">
+				点击查看志愿预选表
+				<span>94</span>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+window.onload=function(){
+	// 院校省份 
+	// 展开收起
+	var offOn=false,offOn1 = false, checkBox1 = []
+	$('.province').click(function(e){
+		e.stopPropagation();
+		offOn1 = !offOn1
+		if (offOn1) {
+			$('.list').show();
+			$('.down1').hide()
+			$('.up1').show()
+		} else {
+			$('.list').hide()
+			$('.down1').show()
+			$('.up1').hide()
+			checkBox1 = []
+		}
+	})
+	// 多选
+	$('.provinceList li input').change(function(){
+		if ($(this).is(":checked")) {
+			console.log($(this))
+			$(this).parent().addClass('checkActive1')
+		}else{
+			$(this).parent().removeClass('checkActive1')
+		}
+	})
+	// 重置
+	$('.reset_search .chongzhi').click(function(){
+		$('.provinceList input[type=checkbox]').prop('checked', false);
+		$('.provinceList li').removeClass('checkActive1')
+		$('.province i').remove()
+		$('.province').append("<i>不限省份</i>")
+		$('.list').hide();
+		$('.down1').show();
+		$('.up1').hide();
+		offOn1 = false
+	})
+	// 筛选
+	$('.shai').click(function(){
+		checkBox1 = []
+		$(".provinceList li input[type=checkbox]").each(function (i, v) {
+			if (v.checked) {
+				checkBox1.push(v.value)
+				console.log(checkBox1)
+			}
+		})
+		$('.list').hide();
+		$('.down1').show();
+		$('.up1').hide();
+		// $('.provinceList li input[type=checkbox]').prop('checked', false);
+		// $('.provinceList li').removeClass('checkActive1')
+		offOn1 = false
+		var str1 = '';
+		for (i = 0; i < checkBox1.length; i++) {
+			str1 += "<i>" + checkBox1[i] + "</i>";//选中后拼接想要展示的数据
+		}
+		console.log(str1)
+		$('.province i').remove()
+		$('.province').append(str1); 
+	})
+	// 专业类别
+	// 展开收起
+	$('.zhuanye').click(function(e){
+		e.stopPropagation();
+		offOn=!offOn
+		if(offOn){
+			$('#slideBox').show();
+			$('.down2').hide()
+			$('.up2').show()
+		}else{
+			$('#slideBox').hide()
+			$('.down2').show()
+			$('.up2').hide()
+			arr = []
+		}
+	})
+		// 专业类别
+	var oSlideBox=document.getElementById('slideBox');
+	var aSlideLi= oSlideBox.getElementsByClassName('slideLi');
+	var aSlideLih = oSlideBox.getElementsByClassName('slideLih');
+	var zhuanye = document.getElementsByClassName('zhuanye');
+	var n=0;
+	var arr = [];
+	for(var i=0;i< aSlideLih.length;i++){
+		aSlideLih[i].index=i;
+		aSlideLih[0].parentNode.children[1].style.display='block';
+		console.log(aSlideLih[0].className)
+		aSlideLih[i].onclick=function(){
+			// checkN(0)
+			for (var i = 0; i < aSlideLih.length; i++) {
+				aSlideLih[i].parentNode.children[1].style.display = 'none';
+			}
+			aSlideLih[this.index].parentNode.children[1].style.display = 'block';
+			n=0
+		}
+	}
+	 n = 0;
+	// 多选框
+	function checkN(){
+		// arr = []
+		$('.slideLi li input').change(function (e) {
+			if ($(this).is(":checked")) {
+				n++
+			} else {
+				n--
+			}
+			if (n > 0) {
+				$(this).parent().parent().prev().addClass('checkActive')
+				// 获取左侧导航选中的标题内容
+					// console.log($(this).parent().parent().prev().html())
+					// if ($(this).parent().parent().prev().attr('class').indexOf('checkActive') == 9 && arr.indexOf($(this).parent().parent().prev().html()) == -1) {
+					// 	var t= $(this).parent().parent().prev().html()
+					// 	arr.push($(this).parent().parent().prev().html())
+					// 	 var i = arr.indexOf($(this).parent().parent().prev().html());
+					// 	 var str= "<i>" + t + "</i>"
+					// 	$(".zhuanye div").append(str);
+					// }
+			} else {
+				$(this).parent().parent().prev().removeClass('checkActive')
+					// if ($(this).parent().parent().prev().attr('class').indexOf('checkActive') !== 9 && arr.indexOf($(this).parent().parent().prev().html()) !== -1) {
+					// 	// arr.splice(arr.indexOf($(this).parent().parent().prev().html()),1)
+					// 	var t2 = $(this).parent().parent().prev().html();
+					// 	var str2 = "<i>" + t2 + "</i>"
+					// 	$('.zhuanye div i').each(function (i, v) {
+					// 		if(v.outerHTML==str2){
+					// 			v.remove()
+					// 		}
+					// 	})
+					// }
+			}
+			// console.log(arr)
+			// var str = '';
+			// for (i = 0; i < arr.length; i++) {
+			// 	str = "<i>" + arr[i] + "</i>";//选中后拼接想要展示的数据
+			// }
+			// console.log(str)
+			// $('.zhuanye div').append(str); 
+			// console.log(n)
+		})
+
+	}
+	checkN();
+	// 重置
+	$('.reset').click(function() {
+		$('.innerBox input[type=checkbox]').prop('checked', false);
+		$('.slideLih').removeClass('checkActive')
+		$('.zhuanye i').remove()
+		$('.zhuanye').append("<i>不限专业</i>")
+		$('#slideBox').hide();
+		$('.down2').show();
+		$('.up2').hide();
+		offOn = false
+	})
+	//确认筛选
+	$('.sure').click(function(){
+		var checkBox = []; arr = [];
+		$(".innerBox input[type=checkbox]").each(function(i,v){
+			if(v.checked){
+				checkBox.push(v.value)
+			}
+		})
+		$(".slideLih").each(function (i, v) {
+			if (v.className.indexOf('checkActive') !== -1) {
+				console.log(v)
+				arr.push(v.innerHTML)
+			}
+		})
+		console.log(arr)
+		var str='';
+		for (i = 0; i < arr.length; i++) {
+			str += "<i>" + arr[i] + "</i>";//选中后拼接想要展示的数据
+		}
+		console.log(str)
+		$('.zhuanye i').remove()
+		$('.zhuanye').append(str); 
+		$('#slideBox').hide();
+		$('.down2').show();
+		$('.up2').hide();
+		// $('.innerBox input[type=checkbox]').prop('checked', false);
+		// $('.slideLih').removeClass('checkActive')
+		offOn = false
+		console.log(checkBox)
+		
+	})
+
+	// 搜索
+	$('#search').click(function(){
+		var inputVal=$('#inputVal').val()
+		console.log(inputVal)
+	})
+	//获取所有元素
+	var tabl = document.getElementById("tabl");
+	var oLiNav = tabl.getElementsByTagName("a");
+	var oBox = document.getElementById("box");
+	var oDiv = oBox.getElementsByClassName("div_one");
+	var explainWord = document.getElementById("explain_word");
+	//初始化
+	oDiv[0].style.display = "block";
+	for (var i = 0 ; i<oDiv.length;i++) {
+		tab(oDiv[i])
+	}
+	//侧栏Nav切换
+	for (var i = 0 ; i<oLiNav.length ; i++) {
+		oLiNav[i].index = i ;
+		oLiNav[i].onclick = function(){
+			for (var i = 0 ; i<oLiNav.length ; i++) {
+				oLiNav[i].className = "";
+				oDiv[i].style.display = 'none';
+			}
+			this.className = "activeNav";
+			oDiv[this.index].style.display = 'block';
+			if(this.index==0){
+				explainWord.innerHTML='<p>使用说明:</p>'+
+			'<p>1、推荐的院校我们均已进行了严格的等级划分，并将风险指数过高及过低的院校自动屏蔽，建议不要跳出该范围选择志愿。</p>'+
+			'<p>2、名词解释：</p>'+
+			'<p>A段代表可冲击的院校，是系统推荐给您的有希望冲一冲的院校。</p>'+
+			'<p>B段、C段代表谨慎填报的院校 ，属于和你分数水平差不多的院校。</p>'+
+			'<p>D段代表保险的院校 ，属于你填报录取概率非常高的院校。</p>'+
+			'<p>E段代表托底的院校，是为了防止出现院校大小年等不确定因素，给你推荐的用于防止意外的院校。</p>'+
+			'<p>正常填报时只需在各字母段中各选一所院校</p>'
+			}else if(this.index==1){
+				explainWord.innerHTML='<p>使用说明:</p>'+
+			'<p>1、推荐的院校我们均已进行了严格的等级划分，并将风险指数过高及过低的院校自动屏蔽，建议不要跳出该范围选择志愿。</p>'+
+			'<p>2、名词解释：</p>'+
+			'<p>A/B，C段代表可冲击的院校，是系统推荐给您的有希望冲一冲的院校。</p>'+
+			'<p>D段、E段代表谨慎填报的院校 ，属于和你分数水平差不多的院校。</p>'+
+			'<p>F段、G段代表保险的院校 ，属于你填报录取概率非常高的院校。</p>'+
+			'<p>H段、I段、J段代表托底的院校，是为了防止出现院校大小年等不确定因素，给你推荐的用于防止意外的院校。</p>'+
+			'<p>正常填报时只需在各字母段中各选一所院校</p>'
+			}
+		}
+	}
+	function tab(obj){
+		var aDiv = obj.getElementsByClassName("div_content");
+		var aA = obj.getElementsByTagName("a");
+		//tab_img
+		for (var i = 0 ; i<aA.length;i++) {
+			aA[0].className = "activeDiv";
+			aDiv[0].style.display = "block";
+			aA[i].index = i ;
+			aA[i].onclick = function(){
+				for (var i = 0 ; i<aA.length ; i++) {
+					aA[i].className = ""
+					aDiv[i].style.display = "none"
+				}
+				this.className = "activeDiv";
+				aDiv[this.index].style.display = "block";
+			}
+		}
+	}
+	// 
+	function tab2(obj1,obj2){
+		for (var i = 0 ; i<obj2.length;i++) {
+			obj2[i].index = i ;
+			obj2[i].onclick = function(){
+				$(this).parent().parent().parent().next().slideToggle('normal')
+				for (var j = 0 ; j<obj1.length ; j++) {
+					// obj1[j].getElementsByTagName("table")[0].style.display = "none";
+					obj2[j].src="img/down.png";
+					if(j == this.index){
+						// obj1[j].getElementsByTagName("table")[0].style.display = "block"
+						obj2[j].src = "img/up.png";
+						var addBtnDom = document.querySelector(".add-btn");
+						var shopCarDom = document.querySelector(".shop-car");
+						var thisBtns = obj1[this.index].querySelectorAll(".add-btn")
+						// console.log(thisBtns)
+						for (var i = 0; i < thisBtns.length; i++) {
+							thisBtns[i].index = i;
+							thisBtns[i].addEventListener("click", function () {
+								var n = 0;
+								var count= shopCarDom.getElementsByTagName('span')[0].innerHTML
+								if (thisBtns[this.index].innerHTML == '已加入预选') {
+									thisBtns[this.index].innerHTML ='加入预选表'
+									n--;
+									thisBtns[this.index].classList.remove('add-btn-active')
+								}else{
+									n++;
+									if(count < 96){
+										console.log(n,'nnnn')
+										controllPath(thisBtns[this.index], shopCarDom)
+										thisBtns[this.index].innerHTML = '已加入预选'
+										thisBtns[this.index].classList.add('add-btn-active')
+										console.log(shopCarDom.getElementsByTagName('span')[0].innerHTML)
+									}else{
+										alert('添加专业数量不能大于96个')
+										return 
+									}
+								}
+								shopCarDom.getElementsByTagName('span')[0].innerHTML = parseInt(shopCarDom.getElementsByTagName('span')[0].innerHTML) + n;
+							},false)
+						}
+					}
+				}
+			}
+		}
+	}
+	var aUl=document.getElementsByTagName("ul");
+	for (var i = 0 ; i<aUl.length;i++) {
+		tab2(aUl[i].getElementsByTagName("li"),aUl[i].getElementsByClassName("down"));
+	}
+	// * 动画轨迹控制
+	// * @param addBtnDom 增加按钮的dom元素或者选择器
+	// * @param shopCarDom 购物车的dom元素或选择器
+	function controllPath(addBtn, shopCar) {
+		var addBtnDom = null,
+			shopCarDom = null;
+		if (typeof addBtn === "string") {
+			addBtnDom = document.querySelector(addBtn);
+		} else if (addBtn instanceof HTMLElement) {
+			addBtnDom = addBtn
+		} else {
+			alert("传入的参数错误： 第一个参数应为增加按钮的dom元素或该元素的选择器。");
+			return;
+		}
+
+		if (typeof shopCar === "string") {
+			shopCarDom = document.querySelector(shopCar);
+		} else if (shopCar instanceof HTMLElement) {
+			shopCarDom = shopCar;
+		} else {
+			alert("传入的参数错误： 第二个参数应为购物车的dom元素或该元素的选择器。");
+			return;
+		}
+
+		// 获取两个dom的位置
+		var addBtnposition = addBtnDom.getBoundingClientRect();
+		var shopCarPosition = shopCarDom.getBoundingClientRect();
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+		var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft
+		var addBtnCenterX = (addBtnposition.left + addBtnposition.right) / 2 + scrollLeft;
+		var addBtnCenterY = (addBtnposition.top + addBtnposition.bottom) / 2 + scrollTop;
+		var shopCarCenterX = (shopCarPosition.left + shopCarPosition.right) / 2 + scrollLeft;
+		var shopCarCenterY = (shopCarPosition.top + shopCarPosition.bottom) / 2 + scrollTop;
+		// console.log(shopCarPosition)
+		console.log(addBtnposition)
+		//计算增加按钮 是在 相对于购物车的 左边还是右边（用于控制后面的移动方向）
+		var relativePosition = addBtnCenterX > shopCarCenterX ? -1 : 1;
+
+		// 获取连个dom之间的距离
+		var xDistance = Math.abs(addBtnCenterX - shopCarCenterX);
+		var yDistance = Math.abs(addBtnCenterY - shopCarCenterY);
+
+		// 绘制小球并设置其位置
+		var ballDom = drawBall();
+		ballDom.style.top = addBtnCenterY + "px";
+		ballDom.style.left = addBtnCenterX + "px";
+		document.body.appendChild(ballDom);
+		/*
+		 * 根据一元二次方程的轨迹求出对象的系数 y = ax^2 + bx + c
+		 *  var coefficientC = 0;
+		 *  var coefficientB = 0;
+		 *  var coefficientA = yDistance / Math.pow(xDistance, 2);
+		 */
+		//小球的横竖坐标
+		var xAbscissa = 0, yAbscissa = 0;
+
+		//设置移动路径
+		var ballTimer = setInterval(function () {
+			//每次重新坐标
+			xAbscissa += 5 * relativePosition;
+			yAbscissa = (yDistance / Math.pow(xDistance, 2)) * Math.pow(xAbscissa, 2);
+			ballDom.style.top = addBtnCenterY + yAbscissa + "px";
+			ballDom.style.left = addBtnCenterX + xAbscissa + "px";
+			//检查是否到达终点
+			var surplusDistance = parseInt(ballDom.style.left) - shopCarCenterX;
+			if (Math.abs(surplusDistance) <= 8) {
+				clearInterval(ballTimer);
+				ballDom.style.background = "transparent";
+				ballDom.style.borderColor= "transparent";
+			}
+		}, 3);
+	}
+
+	/*
+	* 绘制小球
+	* */
+	function drawBall() {
+		var ballDom = document.createElement("div");
+		ballDom.style.width = "20px";
+		ballDom.style.height = "20px";
+		ballDom.style.border = "1px solid #ccc";
+		ballDom.style.background = "#ff0033";
+		ballDom.style.borderRadius = "50%";
+		ballDom.style.position = "absolute";
+		return ballDom;
+	}
+}
+
+</script>

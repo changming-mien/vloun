@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>志愿推荐_志愿填报模拟系统_一键选择我的大学志愿 - 好好录</title>
+    <meta name="keywords" content="高考志愿填报系统,平行志愿填报技巧,高考gps高考志愿填报系统,模拟志愿填报系统,高考志愿填报网,志愿填报指南" />
+    <meta name="description"
+        content="好好录志愿推荐功能，是集合志愿分数评估,高考志愿填报技巧,高考分数线,高考填报模拟系统,平行志愿填报技巧于一体的一键志愿填报功能，志愿推荐功能可以帮助目标不明确的考生和家长最快的锁定大学和专业目标。">
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+    <style></style>
+</head>
+
+<body>
+    <div class="volun_content_top">
+        <img src="img/volun_bg2.png" alt="">
+        <div id="explain_word">
+            <p>使用说明:</p>
+            <p>1、推荐的院校我们均已进行了严格的等级划分，并将风险指数过高及过低的院校自动屏蔽，建议不要跳出该范围选择志愿。</p>
+            <p>2、名词解释：</p>
+            <p>A段代表可冲击的院校，是系统推荐给您的有希望冲一冲的院校。</p>
+            <p>B段、C段代表谨慎填报的院校 ，属于和你分数水平差不多的院校。</p>
+            <p>D段代表保险的院校 ，属于你填报录取概率非常高的院校。</p>
+            <p>E段代表托底的院校，是为了防止出现院校大小年等不确定因素，给你推荐的用于防止意外的院校。</p>
+            <p>正常填报时只需在各字母段中各选一所院校。</p>
+        </div>
+    </div>
+    <div class="college_preselection">
+        <div class="title">志愿预选页</div>
+        <div class="sort">
+            <div id="box">
+                <span id="oSpan"> 以录取难度排序</span>
+                <i class="down"></i>
+            </div>
+            <ul id="down">
+                <li>以录取难度排序1</li>
+                <li>以录取难度排序2</li>
+                <li>以录取难度排序3</li>
+                <li>以录取难度排序4</li>
+            </ul>
+        </div>
+        <div class="theads">
+            <span>序号</span>
+            <span>专业代码</span>
+            <span>专业名称</span>
+            <span>院校名称</span>
+            <span>学科等级</span>
+            <span>选科说明</span>
+            <span>录取难度</span>
+            <span>自定义排序</span>
+        </div>
+        <ul class="selectionList">
+            <li>
+                <div class="oDiv">
+                    <span>1</span>
+                    <span>01</span>
+                    <span>通信工程</span>
+                    <span>北京邮电大学世纪学院</span>
+                    <span>A</span>
+                    <span>再选不限</span>
+                    <span><em class="chong">冲</em></span>
+                    <span>
+                        <em class="up">上移</em>
+                        <em class="down">下移</em>
+                        <em class="del">删除</em>
+                    </span>
+                </div>
+                <div class="sure">
+                    <p>确认删除？</p>
+                    <div>
+                        <span class="cancel">取消</span>
+                        <span class="delete">删除</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="oDiv">
+                    <span>2</span>
+                    <span>01</span>
+                    <span>通信工程</span>
+                    <span>北京邮电大学世纪学院</span>
+                    <span>A</span>
+                    <span>再选不限</span>
+                    <span><em class="wen">稳</em></span>
+                    <span>
+                        <em class="up">上移</em>
+                        <em class="down">下移</em>
+                        <em class="del">删除</em>
+                    </span>
+                </div>
+                <div class="sure">
+                    <p>确认删除？</p>
+                    <div>
+                        <span class="cancel">取消</span>
+                        <span class="delete">删除</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="oDiv">
+                    <span>3</span>
+                    <span>01</span>
+                    <span>通信工程</span>
+                    <span>北京邮电大学世纪学院</span>
+                    <span>A</span>
+                    <span>再选不限</span>
+                    <span><em class="dian">垫</em></span>
+                    <span>
+                        <em class="up">上移</em>
+                        <em class="down">下移</em>
+                        <em class="del">删除</em>
+                    </span>
+                </div>
+                <div class="sure">
+                    <p>确认删除？</p>
+                    <div>
+                        <span class="cancel">取消</span>
+                        <span class="delete">删除</span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="oDiv">
+                    <span>3</span>
+                    <span>01</span>
+                    <span>通信工程</span>
+                    <span>北京邮电大学世纪学院</span>
+                    <span>A</span>
+                    <span>再选不限</span>
+                    <span><em class="bao">保</em></span>
+                    <span>
+                        <em class="up">上移</em>
+                        <em class="down">下移</em>
+                        <em class="del">删除</em>
+                    </span>
+                </div>
+                <div class="sure">
+                    <p>确认删除？</p>
+                    <div>
+                        <span class="cancel">取消</span>
+                        <span class="delete">删除</span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="pages">
+            <span>首页</span>
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>下一页</span>
+        </div>
+        <div class="collegeButton">
+            <div>返回志愿推荐页面</div>
+            <div>点击生成最终志愿表</div>
+        </div>
+    </div>
+</body>
+<script language="JavaScript" type="text/javascript">
+// 下拉框
+    var oLi=$('#down li');
+    var timer,openClose=false;
+    $("#box").click(function(){
+        openClose=!openClose
+        if(openClose){
+            $("#down").show()
+            $("#box i").addClass('up')
+            $("#box i").removeClass('down')
+        }else{
+             $("#down").hide()
+             $("#box i").addClass('down')
+             $("#box i").removeClass('up')
+        }
+    })
+    oLi.click(function(){
+        document.getElementById('oSpan').innerHTML=$(this).html()
+        $("#down").hide()
+         $("#box i").addClass('down')
+        $("#box i").removeClass('up')
+        openClose=false
+    })
+    // 上移
+    var up=$('.up');
+    up.click(function(){
+        var $li=$(this).parent().parent().parents('li');
+        if($li.index()>0){
+            $li.fadeOut().fadeIn();
+            $li.prev().before($li);
+
+        }
+    })
+    // 下移
+    var down=$('.down');
+    var len=down.length;
+    down.click(function(){
+        var $li = $(this).parent().parent().parents('li');
+        if ($li.index() !=len) {
+            $li.fadeOut().fadeIn();
+            $li.next().after($li);
+
+        }
+    })
+//  删除
+var del=$('.del');
+del.click(function(){
+    del.parent().parent().next().hide();
+    var oDiv=$(this).parent().parent().next();
+    oDiv.show();
+    $('.cancel').click(function(){
+        oDiv.hide()
+    })
+    $('.delete').click(function () {
+        oDiv.parent().hide()
+    })
+
+})
+// 分页
+    var n = 1;
+    $('.pages span').each(function () {
+        $(this).attr('tabindex', n++);
+    });
+</script>
+
+</html>

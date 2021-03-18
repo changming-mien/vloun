@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>志愿推荐_志愿填报模拟系统_一键选择我的大学志愿 - 好好录</title>
+    <meta name="keywords" content="高考志愿填报系统,平行志愿填报技巧,高考gps高考志愿填报系统,模拟志愿填报系统,高考志愿填报网,志愿填报指南" />
+    <meta name="description"
+        content="好好录志愿推荐功能，是集合志愿分数评估,高考志愿填报技巧,高考分数线,高考填报模拟系统,平行志愿填报技巧于一体的一键志愿填报功能，志愿推荐功能可以帮助目标不明确的考生和家长最快的锁定大学和专业目标。">
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+    <style></style>
+</head>
+<body>
+    <div class="volun_content_top">
+        <img src="img/volun_bg2.png" alt="">
+        <div id="explain_word">
+            <p>使用说明:</p>
+            <p>1、推荐的院校我们均已进行了严格的等级划分，并将风险指数过高及过低的院校自动屏蔽，建议不要跳出该范围选择志愿。</p>
+            <p>2、名词解释：</p>
+            <p>A段代表可冲击的院校，是系统推荐给您的有希望冲一冲的院校。</p>
+            <p>B段、C段代表谨慎填报的院校 ，属于和你分数水平差不多的院校。</p>
+            <p>D段代表保险的院校 ，属于你填报录取概率非常高的院校。</p>
+            <p>E段代表托底的院校，是为了防止出现院校大小年等不确定因素，给你推荐的用于防止意外的院校。</p>
+            <p>正常填报时只需在各字母段中各选一所院校。</p>
+        </div>
+    </div>
+    <div class="college_table">
+        <div class="title">志愿填报确认表</div>
+        <div class="tro">
+            <div class="left">
+                <span>姓名：<em>张梦涵</em></span>
+                <span>省份：<em>河北省</em></span>
+                <span>科目：<em>物理</em> <em>化学</em> <em>地理</em></span>
+            </div>
+            <div class="right">
+                <span>重选</span>
+                <span>保存</span>
+                <span onclick="btn_export()">导出</span>
+                <span>打印</span>
+                <span>分享</span>
+            </div>
+        </div>
+        <table id="collegeTable" width="100%"  cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>专业代码</th>
+                    <th>专业名称</th>
+                    <th>院校代码</th>
+                    <th>院校名称</th>
+                    <th>选科说明</th>
+                    <th>录取难度</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>01</td>
+                    <td>通信工程</td>
+                    <td>1010</td>
+                    <td>北京邮电大学世纪学院</td>
+                    <td>再选不限</td>
+                    <td><span class="chong">冲</span></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>02</td>
+                    <td>旅游管理</td>
+                    <td>1010</td>
+                    <td>北京外国语大学中瑞酒店管理学院</td>
+                    <td>政治必选</td>
+                    <td><span class="wen">稳</span></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>02</td>
+                    <td>旅游管理</td>
+                    <td>1010</td>
+                    <td>北京外国语大学中瑞酒店管理学院</td>
+                    <td>政治必选</td>
+                    <td><span class="bao">保</span></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>02</td>
+                    <td>旅游管理</td>
+                    <td>1010</td>
+                    <td>北京外国语大学中瑞酒店管理学院</td>
+                    <td>政治必选</td>
+                    <td><span class="dian">垫</span></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>OA</td>
+                    <td>旅游管理</td>
+                    <td>1010</td>
+                    <td>北京外国语大学中瑞酒店管理学院</td>
+                    <td>政治必选</td>
+                    <td><span class="bao">保</span></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>0</td>
+                    <td>旅游管理</td>
+                    <td>1010</td>
+                    <td>北京外国语大学中瑞酒店管理学院</td>
+                    <td>政治必选</td>
+                    <td><span class="bao">保</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="print">
+            <span>打印最终志愿方案</span>
+        </div>
+    </div>
+</body>
+<script src="js/xlsx.full.min.js"></script>
+<script src="js/export.js"></script>
+<script src="js/jspdf.debug.js"></script>
+<script src="js/html2canvas.min.js"></script>
+<script>
+    // 导出表格
+      function btn_export() {
+            var table1 = document.querySelector("#collegeTable");
+            var sheet = XLSX.utils.table_to_sheet(table1);//将一个table对象转换成一个sheet对象
+            console.log(sheet)
+            openDownloadDialog(sheet2blob(sheet), '志愿填报确认表.xlsx');
+      }
+        // 打印pdf
+        $(".print span").click(function () {
+            html2canvas(
+                document.getElementById("collegeTable"),
+                {
+                    dpi: 172,//导出pdf清晰度
+                    onrendered: function (canvas) {
+                        var contentWidth = canvas.width;
+                        var contentHeight = canvas.height;
+
+                        //一页pdf显示html页面生成的canvas高度;
+                        var pageHeight = contentWidth / 592.28 * 841.89;
+                        //未生成pdf的html页面高度
+                        var leftHeight = contentHeight;
+                        //pdf页面偏移
+                        var position = 0;
+                        //html页面生成的canvas在pdf中图片的宽高（a4纸的尺寸[595.28,841.89]）
+                        var imgWidth = 595.28;
+                        var imgHeight = 592.28 / contentWidth * contentHeight;
+
+                        var pageData = canvas.toDataURL('image/jpeg', 1.0);
+                        var pdf = new jsPDF('', 'pt', 'a4');
+
+                        //有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
+                        //当内容未超过pdf一页显示的范围，无需分页
+                        if (leftHeight < pageHeight) {
+                            pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight);
+                        } else {
+                            while (leftHeight > 0) {
+                                pdf.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+                                leftHeight -= pageHeight;
+                                position -= 841.89;
+                                //避免添加空白页
+                                if (leftHeight > 0) {
+                                    pdf.addPage();
+                                }
+                            }
+                        }
+                        pdf.save('志愿填报确认表.pdf');
+                    },
+                    //背景设为白色（默认为黑色）
+                    background: "#fff"
+                })
+        })
+</script>
+</html>
